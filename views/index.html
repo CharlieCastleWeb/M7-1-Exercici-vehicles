@@ -1,0 +1,88 @@
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Ejercicio de Vehículos</h1>
+        <form class="car-form">
+            <div class="row">
+                <div class="col">
+                    <label for="inputPlate">Plate: </label>
+                    <input type="text" id="inputPlate" name="plate" class="form-control">
+                    <div class="invalid-feedback" id="plateError"></div>
+                </div>
+                    <div class="col">
+                    <label for="inputBrand">Brand: </label>
+                    <input type="text" id="inputBrand" name="brand" class="form-control col">
+                </div>
+                    <div class="col">
+                    <label for="inputColor">Color: </label>
+                    <input type="text" id="inputColor" name="color" class="form-control col">
+                </div>
+            </div>
+            <button type="button" id="createCarBtn" class="btn btn-primary my-3">Create Car</button>
+        </form>
+
+
+        <form class="wheels-form d-none">
+            <div class="row">
+                <div class="col">
+                    <label for="marcaRueda1">Marca Rueda 1: </label>
+                    <input type="text" id="marcaRueda1" name="marcaRueda1" class="form-control">
+                </div>
+                    <div class="col">
+                    <label for="diametroRueda1">Diámetro Rueda 1: </label>
+                    <input type="text" id="diametroRueda1" name="diametroRueda1" class="form-control">
+                    <div class="invalid-feedback" id="rueda1Error"></div>
+                </div>
+                <div class="col">
+                    <label for="marcaRueda2">Marca Rueda 2: </label>
+                    <input type="text" id="marcaRueda2" name="marcaRueda2" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="diametroRueda2">Diámetro Rueda 2: </label>
+                    <input type="text" id="diametroRueda2" name="diametroRueda2" class="form-control">
+                    <div class="invalid-feedback" id="rueda2Error"></div>
+                </div>
+            </div> <!-- /Row -->
+            <div class="row">
+                <div class="col">
+                    <label for="marcaRueda3">Marca Rueda 3: </label>
+                    <input type="text" id="marcaRueda3" name="marcaRueda3" class="form-control">
+                </div>
+                    <div class="col">
+                    <label for="diametroRueda3">Diámetro Rueda 3: </label>
+                    <input type="text" id="diametroRueda3" name="diámetroRueda3" class="form-control">
+                    <div class="invalid-feedback" id="rueda3Error"></div>
+                </div>
+                <div class="col">
+                    <label for="marcaRueda4">Marca Rueda 4: </label>
+                    <input type="text" id="marcaRueda4" name="marcaRueda4" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="diametroRueda4">Diámetro Rueda 4: </label>
+                    <input type="text" id="diametroRueda4" name="diámetroRueda4" class="form-control">
+                    <div class="invalid-feedback" id="rueda4Error"></div>
+                </div>
+            </div> <!-- /Row -->
+            <button type="button" id="createWheelsBtn" class="btn btn-primary my-3">Add Wheels</button>
+        </form>
+
+        <div id="car-container"></div>
+        <div id="wheels-container"></div>
+        
+    </div> <!-- /Container -->
+    
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
