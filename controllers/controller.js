@@ -15,7 +15,7 @@ function showWheels(car) {
     divWheels.innerHTML = displayWheels;
 }
 function validatePlate(plate) {
-    var regex = /[0-9]{4}[A-Za-z]{3}/;
+    var regex = /[0-9]{4}[A-Za-z]{3}$/;
     return regex.test(plate) ? true : false;
 }
 function createCar() {
@@ -35,18 +35,29 @@ function createCar() {
         inputPlateError.textContent = "Plate format should be 4 numbers and 3 letters";
     }
 }
+function validateBrand() {
+}
 function addWheels(car) {
-    var _a;
+    var _a, _b, _c, _d;
     for (var i = 1; i < 5; i++) {
         var marcaRueda = document.getElementById("marcaRueda" + i).value;
         var diametroRueda = parseFloat(document.getElementById("diametroRueda" + i).value);
+        var marcaRuedaErrorDiv = document.getElementById("marcaRuedaError" + i);
         var ruedaErrorDiv = document.getElementById("rueda" + i + "Error");
-        if (diametroRueda >= 0.4 && diametroRueda <= 2) {
+        (_a = document.getElementById("marcaRueda" + i)) === null || _a === void 0 ? void 0 : _a.classList.remove("is-invalid");
+        (_b = document.getElementById("diametroRueda" + i)) === null || _b === void 0 ? void 0 : _b.classList.remove("is-invalid");
+        if (diametroRueda >= 0.4 && diametroRueda <= 2 && !marcaRueda == "") {
             var newWheel = new Wheel(diametroRueda, marcaRueda);
             car.addWheel(newWheel);
         }
+        else if (marcaRueda == "") {
+            console.log("Error!!!!"); ////BORRARRR
+            (_c = document.getElementById("marcaRueda" + i)) === null || _c === void 0 ? void 0 : _c.classList.add("is-invalid");
+            marcaRuedaErrorDiv.textContent = "Brand must be indicated";
+            return false;
+        }
         else {
-            (_a = document.getElementById("diametroRueda" + i)) === null || _a === void 0 ? void 0 : _a.classList.add("is-invalid");
+            (_d = document.getElementById("diametroRueda" + i)) === null || _d === void 0 ? void 0 : _d.classList.add("is-invalid");
             ruedaErrorDiv.textContent = "Diameter should be between 0.4 and 2";
             return false;
         }

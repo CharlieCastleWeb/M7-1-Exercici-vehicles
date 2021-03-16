@@ -58,7 +58,7 @@ function showWheels(car:Car) {
 }
 
 function validatePlate(plate:string) {
-    let regex = /[0-9]{4}[A-Za-z]{3}/;
+    let regex = /[0-9]{4}[A-Za-z]{3}$/;
     return regex.test(plate) ? true : false;
 }
 
@@ -69,7 +69,6 @@ function createCar() {
     let inputBrand: string = (<HTMLInputElement>document.getElementById("inputBrand")).value;
     let inputPlateDiv =  document.getElementById("inputPlate") as HTMLDivElement;
     let inputPlateError =  document.getElementById("plateError") as HTMLDivElement;
-
 
     if (validatePlate(inputPlate)) {
         car.plate = inputPlate;
@@ -82,16 +81,30 @@ function createCar() {
     }    
 }
 
+function validateBrand() {
+
+}
+
 function addWheels(car:Car) {
     
     for (let i = 1; i<5; i++) {
+        
         let marcaRueda:string = (<HTMLInputElement>document.getElementById("marcaRueda"+i)).value;
         let diametroRueda:number = parseFloat((<HTMLInputElement>document.getElementById("diametroRueda"+i)).value);
+        let marcaRuedaErrorDiv = document.getElementById("marcaRuedaError"+i) as HTMLDivElement;
         let ruedaErrorDiv = document.getElementById("rueda"+i+"Error") as HTMLDivElement;
         
-        if (diametroRueda>=0.4 && diametroRueda<=2) {
+        document.getElementById("marcaRueda"+i)?.classList.remove("is-invalid");
+        document.getElementById("diametroRueda"+i)?.classList.remove("is-invalid");
+
+        if (diametroRueda>=0.4 && diametroRueda<=2 && !marcaRueda == "") {
             let newWheel = new Wheel(diametroRueda, marcaRueda);
-            car.addWheel(newWheel); 
+            car.addWheel(newWheel);
+        } else if (marcaRueda == "") {
+            console.log("Error!!!!") ////BORRARRR
+            document.getElementById("marcaRueda"+i)?.classList.add("is-invalid");
+            marcaRuedaErrorDiv.textContent = "Brand must be indicated";
+            return false;
         } else {
             document.getElementById("diametroRueda"+i)?.classList.add("is-invalid");
             ruedaErrorDiv.textContent = "Diameter should be between 0.4 and 2";
