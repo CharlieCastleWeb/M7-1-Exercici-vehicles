@@ -1,18 +1,52 @@
 var car = new Car();
 var wheelsForm = document.getElementsByClassName("wheels-form")[0];
 function showCar(car) {
-    var divCar = document.getElementById("car-container");
+    var carContainer = document.getElementById("car-container");
+    var carPlate = document.getElementById("car-plate");
+    var carBrand = document.getElementById("car-brand");
+    var carColor = document.getElementById("car-color");
     var carForm = document.getElementsByClassName("car-form")[0];
-    var displayCar = "\n        <table class=\"table table-sm table-borderless\">\n        <thead>\n            <tr>\n                <th>Car:</th>\n            </tr>\n        </thead>\n        <tbody>\n        <tr>\n            <td>Plate: " + car.plate + "</td>\n            <td>Brand: " + car.brand + "</td>\n            <td>Color: " + car.color + "</td>\n        </tr>\n        </tbody>\n        </table>\n    ";
-    divCar.innerHTML = displayCar;
+    carContainer.classList.remove("d-none");
+    carPlate.innerHTML = "Plate: " + car.plate;
+    carBrand.innerHTML = "Brand: " + car.brand;
+    carColor.innerHTML = "Color: " + car.color;
     carForm.classList.add("d-none");
     wheelsForm === null || wheelsForm === void 0 ? void 0 : wheelsForm.classList.toggle("d-none");
 }
 function showWheels(car) {
-    var divWheels = document.getElementById("wheels-container");
-    var displayWheels = "\n        <table class=\"table table-sm table-borderless\">\n        <thead>\n            <tr>\n                <th>Wheels:</th>\n            </tr>\n        </thead>\n        <tbody>\n        <tr>\n            <td>Wheel 1: " + car.wheels[0].brand + "</td>\n            <td>Wheel 2: " + car.wheels[1].brand + "</td>\n            <td>Wheel 3: " + car.wheels[2].brand + "</td>\n            <td>Wheel 4: " + car.wheels[3].brand + "</td>\n        </tr>\n        <tr>\n            <td>DLC Diameter: " + car.wheels[0].diameter + "</td>\n            <td>DLC Diameter: " + car.wheels[1].diameter + "</td>\n            <td>DLC Diameter: " + car.wheels[2].diameter + "</td>\n            <td>DLC Diameter: " + car.wheels[3].diameter + "</td>\n        </tr>\n        </tbody>\n        </table>\n    ";
+    var wheelsContainer = document.getElementById("wheels-container");
+    wheelsContainer.classList.remove("d-none");
+    for (var i = 1; i <= car.wheels.length; i++) {
+        var wheelBrand = document.getElementById("car-wheel" + i + "-brand");
+        var wheelDiameter = document.getElementById("car-wheel" + i + "-diameter");
+        wheelBrand === null || wheelBrand === void 0 ? void 0 : wheelBrand.innerHTML = "Wheel " + i + " Brand: " + car.wheels[i - 1].brand;
+        wheelDiameter === null || wheelDiameter === void 0 ? void 0 : wheelDiameter.innerHTML = "Wheel " + i + " Diameter: " + car.wheels[i - 1].diameter;
+    }
+    /*let displayWheels:string = `
+        <table class="table table-sm table-borderless">
+        <thead>
+            <tr>
+                <th>Wheels:</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Wheel 1: ${car.wheels[0].brand}</td>
+            <td>Wheel 2: ${car.wheels[1].brand}</td>
+            <td>Wheel 3: ${car.wheels[2].brand}</td>
+            <td>Wheel 4: ${car.wheels[3].brand}</td>
+        </tr>
+        <tr>
+            <td>DLC Diameter: ${car.wheels[0].diameter}</td>
+            <td>DLC Diameter: ${car.wheels[1].diameter}</td>
+            <td>DLC Diameter: ${car.wheels[2].diameter}</td>
+            <td>DLC Diameter: ${car.wheels[3].diameter}</td>
+        </tr>
+        </tbody>
+        </table>
+    `; */
     wheelsForm === null || wheelsForm === void 0 ? void 0 : wheelsForm.classList.add("d-none");
-    divWheels.innerHTML = displayWheels;
+    //divWheels.innerHTML = displayWheels;
 }
 function validatePlate(plate) {
     var regex = /[0-9]{4}[A-Za-z]{3}$/;

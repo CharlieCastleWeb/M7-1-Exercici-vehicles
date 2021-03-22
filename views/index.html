@@ -73,8 +73,45 @@
             <button type="button" id="createWheelsBtn" class="btn btn-primary my-3">Add Wheels</button>
         </form>
 
-        <div id="car-container"></div>
-        <div id="wheels-container"></div>
+        <div>
+            <table id="car-container" class="table table-sm table-borderless d-none">
+                <thead>
+                    <tr>
+                        <th>Car:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="car-plate"></td>
+                    <td id="car-brand"></td>
+                    <td id="car-color"></td>
+                </tr>
+                </tbody>
+                </table>
+        </div>
+        <div >
+            <table id="wheels-container" class="table table-sm table-borderless d-none">
+                <thead>
+                    <tr>
+                        <th>Wheels:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="car-wheel1-brand"></td>
+                    <td id="car-wheel2-brand"></td>
+                    <td id="car-wheel3-brand"></td>
+                    <td id="car-wheel4-brand"></td>
+                </tr>
+                <tr>
+                    <td id="car-wheel1-diameter">DLC Diameter: ${car.wheels[0].diameter}</td>
+                    <td id="car-wheel2-diameter">DLC Diameter: ${car.wheels[1].diameter}</td>
+                    <td id="car-wheel3-diameter">DLC Diameter: ${car.wheels[2].diameter}</td>
+                    <td id="car-wheel4-diameter">DLC Diameter: ${car.wheels[3].diameter}</td>
+                </tr>
+                </tbody>
+                </table>
+        </div>
         
     </div> <!-- /Container -->
     
